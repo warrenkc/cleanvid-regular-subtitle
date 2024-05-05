@@ -414,6 +414,8 @@ class VidCleaner(object):
                 if self.fullSubs:
                     newSubs.append(sub)
                 prevNaughtySub = None
+        # This will remove any formatting from the subtitles
+        newSubs = newSubs.text.strip_style()
 
         newSubs.save(self.cleanSubsFileSpec)
         if self.jsonDumpList is not None:
